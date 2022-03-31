@@ -1,6 +1,8 @@
 <template>
 	<div>
-		<h1 class="text-red-500">hi</h1>
-		<NuxtWelcome />
+		<h1>app</h1>
+		<nuxt-layout>
+			<nuxt-page></nuxt-page>
+		</nuxt-layout>
 	</div>
 </template>
