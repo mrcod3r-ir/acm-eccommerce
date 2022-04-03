@@ -1,29 +1,17 @@
 <script>
-	import { useLocalStorage, useMouse, usePreferredDark } from "@vueuse/core"
-
+	import { gsap } from "gsap"
 	export default {
 		setup() {
-			// tracks mouse position
-			const { x, y } = useMouse()
-
-			// is user prefers dark theme
-			const isDark = usePreferredDark()
-
-			// persist state in localStorage
-			const store = useLocalStorage("my-storage", {
-				name: "Apple",
-				color: "red"
+			onMounted(() => {
+				gsap.to(".box", { rotation: 27, x: 100, duration: 1 })
 			})
-
-			return { x, y, isDark, store }
 		}
 	}
 </script>
 <template>
 	<div>
 		<h1>page</h1>
-		<h2>x : {{ x }}</h2>
-		<h2>y : {{ y }}</h2>
-		<h2>store: {{ store }}</h2>
+		<div class="box w-4 h-4 bg-red-400"></div>
+		<div class="box w-4 h-4 bg-green-400"></div>
 	</div>
 </template>
