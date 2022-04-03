@@ -9,6 +9,7 @@ module.exports = {
     "./plugins/**/*.{js,ts}",
     "./*.{vue,js}",
   ],
+  safeList:['btn-primary','btn-secondary','btn-accent','btn-ghost','btn-link'],
   theme: {
     aspectRatio:{
       40:'40',
