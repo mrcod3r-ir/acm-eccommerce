@@ -1,21 +1,18 @@
 <template>
-	<button :class="[`btn btn-${variant}`, { loading }]">
+	<!-- <button :class="[`btn btn-${variant}`, { loading }]"> -->
+	<button :class="{ loading, [`btn btn-${variant}`]: variant !== 'undefined' }">
 		<slot></slot>
 	</button>
 </template>
 
 <script setup lang="ts">
-	// const props = defineProps({
-	// 	variant: { type: String, default: "primary" },
-	// 	loading: { type: Boolean, default: false }
-	// })
+	import { ButtonVariantEnum } from "~~/types"
 
 	interface Props {
-		variant?: string
+		variant?: ButtonVariantEnum
 		loading?: boolean
 	}
 	const props = withDefaults(defineProps<Props>(), {
-		variant: "primary",
 		loading: false
 	})
 </script>
