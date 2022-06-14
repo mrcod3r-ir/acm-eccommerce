@@ -1,9 +1,11 @@
 <template>
   <input v-model="checkboxModel" type="checkbox" class="modal-toggle">
   <div class="modal" @click="closeModal">
-    <div class="modal-box relative overflow-hidden">
+    <div class="modal-box relative overflow-hidden" @click.stop="">
       <section class="flex item-center justify-between">
-        <span class="font-medium">{{title}}</span>
+        <slot name="title">
+          <span class="font-medium">{{title}}</span>
+        </slot>
         <span class="cursor-pointer text-xl select-none text-gray-500" @click="closeModal">&#x2715</span>
       </section>
       <div class="overflow-y-auto max-h-[85vh] lg:max-h-[80vh] scrollbar-thin">
@@ -52,5 +54,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
+.modal {
+  margin-top:0 !important;
+}
 </style>

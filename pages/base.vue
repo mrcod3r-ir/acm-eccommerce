@@ -2,7 +2,12 @@
   <div class="flex flex-col space-y-3 justify-center items-center">
     <h1>my base components</h1>
     <app-button :variant="ButtonVariantEnum.primary">button</app-button>
-    <app-modal title="some">modal</app-modal>
+    <app-button :variant="ButtonVariantEnum.accent" @click="modal = !modal"
+      >show modal</app-button
+    >
+    <app-modal title="title of modal" v-model="modal"
+      ><h1>hi from modal</h1></app-modal
+    >
   </div>
 </template>
 
@@ -11,7 +16,8 @@ import { ButtonVariantEnum } from "~~/types";
 
 export default {
   setup() {
-    return { ButtonVariantEnum };
+    const modal = ref(false);
+    return { ButtonVariantEnum, modal };
   },
 };
 </script>
